@@ -1,0 +1,721 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Dark theme styles */
+
+.dark-header,
+.dark-footer,
+.hero-section,
+.featured-books-section,
+.categories-section,
+.testimonials-section,
+.about-us-section,
+.subscription-section,
+.cta-section {
+    background-color: #222;
+    color: #fff;
+}
+
+.dark-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dark-header h1 {
+    margin: 0rem;
+    font-weight: bold;
+}
+
+.dark-header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dark-header nav li {
+    margin-right: 20px;
+}
+
+.dark-header nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.dark-header nav a:hover {
+    color: #ffcc00;
+}
+
+.dark-header img.logo {
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+.hero-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+    justify-content: space-between;
+}
+
+.hero-section p a {
+    color: #ffcc00;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.hero-section p a:hover {
+    color: #fff;
+}
+
+.cta-section {
+    padding: 80px 0;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ffcc00;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e0a800;
+}
+
+.dark-footer {
+    padding: 40px 0;
+}
+
+.dark-footer h3{
+    font-size: 1rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info,
+.social-media {
+    flex: 1;
+}
+
+.contact-info h3,
+.social-media h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 1rem;
+}
+
+.social-media ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-media li {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #ffcc00;
+}
+
+.privacy-links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.privacy-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.privacy-links a:hover {
+    color: #ffcc00;
+}
+
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*margin-bottom: 1rem;*/
+}
+
+.book {
+    width: 18%;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.book img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.book-cover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.book h3, .book p {
+    margin: 0;
+    /*padding: 10px; */
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+h1 {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.book .read-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.book .read-button:hover {
+    background-color: #2ecc71;
+    transform: scale(1.1);
+}
+
+.book .download-button {
+    display: block; 
+    width: calc(100% - 40px);
+    margin: 10px 20px;
+    background-color: #e0a800;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.book .download-button:hover {
+    background-color: #2ecc71;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+    }
+
+    .book {
+        width: 48%;
+    }
+}
+
+.featured-books-section p {
+    font-size: 16px;
+}
+
+
+.featured-books-section h2 {
+    /*margin-top: 1rem;*/
+    padding-top: 6rem;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.categories-section {
+   /* margin-top: 1rem;*/
+    padding-top: 6rem;
+    /*margin-bottom: 1rem;*/
+}
+
+.categories-section h2 {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.character-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*margin-bottom: 1rem;*/
+}
+
+.character {
+    width: 22%; /* Sesuaikan lebar karakter sesuai kebutuhan */
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.character img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.character h3, .character p {
+    margin: 0;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.login-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #1f1f1f;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+    background-color: #e0a800;
+    transform: scale(1.1);
+}
+
+/* Form Styles */
+.login-form,
+.register-form {
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h1,
+.register-form h1,
+.message {
+    color: #fff;
+    text-align: center;
+}
+
+.login-form input,
+.register-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* Center input fields */
+.login-form label,
+.login-form input,
+.register-form label,
+.register-form input {
+    display: block;
+    width: 100%;
+}
+
+.login-form label,
+.register-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+    text-align: left;
+}
+
+.login-form button,
+.register-form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #ffcc00;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-form button:hover,
+.register-form button:hover {
+    background-color: #e0a800;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #ccc;
+}
+
+/* Added styles for login box */
+.login-box {
+    border: 2px solid #fff;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.login-box h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Added styles for register box */
+.register-box {
+    border: 2px solid #fff;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.register-box h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-title {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Added styles for register & login link */
+.message .register-link,
+.message .login-link{
+    color: #ffcc00;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.message .register-link:hover 
+.message .login-link:hover{
+    color: #fff;
+}
+
+/* Added styles for header */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+/* Additional Styles */
+.container {
+    text-align: center;
+}
+
+/* Tambahkan gaya untuk dropdown */
+.dropdown {
+    float: right;
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+.dropbtn {
+    background-color: #414649;
+    color: white;
+    padding: 10px;
+    padding-top: px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffcc00;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+@media (max-width: 480px) {
+    .cta-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .cta-section p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+    }
+
+    .book {
+        width: 100%;
+    }
+    
+}
+
+
+/*Kontak*/
+h3{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+.contact-section {
+    padding: 2rem;
+    background-color: #222222;
+}
+.contact-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.contact-details p {
+    padding-left: 2rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.contact-details p i {
+    margin-right: 10px;
+    color: #E0A800;
+}
+.contact-link {
+    color: #E0A800;
+}
+.contact-profile-picture {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.mb-4{
+    color: #FFF;
+}
+
+
+.container.dark-theme {
+    padding: 2rem;
+}
+
+/*Home*/
+.synopsis-content .more-content {
+    display: none;
+}
+
+.rating span {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.rating .selected {
+    color: gold;
+}
+
+.gallery img {
+    max-width: 30%;
+    margin: 5px;
+}
+
+.hero-section p {
+    color: #ccc;
+}
+
+.read-more-btn {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.read-more-btn:hover {
+    background-color: #e0a800;
+}
+
+
+.additional-features {
+background-color: #222;
+color: #333;
+padding-top: 80px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+    margin-top: 20px;
+}
+.pagination li {
+    margin: 0 0.25rem;
+}
+.pagination a, .pagination span {
+    color: #fff;
+    background-color: #343a40;
+    border: 1px solid #343a40;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+.pagination .active span {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+.pagination .disabled span {
+    background-color: #6c757d;
+    color: #fff;
+    border-color: #6c757d;
+}
+
+/*BASE*/
+.belakang {
+    background-color:black;
+    opacity: .8;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #ffcc00;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    display: none;
+}
+.back-to-top:hover {
+    background-color: #e0a800;
+    transform: translateY(-5px);
+}
+.back-to-top::after {
+    content: "↑";
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.show-back-to-top {
+    display: block;
+}
+          
+/*Home*/
+.user-review {
+    color: #FFF;
+    font-weight: bold;
+}
