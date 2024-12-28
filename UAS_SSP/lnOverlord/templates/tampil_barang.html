@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+
+{% block isi %}
+<div class="container dark-theme" style="background-color: #222;">
+    <h1 class="text-center mb-4">TABEL BARANG</h1>
+    <p><a href="/tambahbarang" class="btn btn-primary">Tambah Barang</a></p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>Stok</th>
+                    <th>Harga</th>
+                    <th>Gambar</th>
+                    <th>Jenis</th>
+                    <th>Bahasa</th>
+                    <th>Waktu Posting</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for barang in barangs %}
+                    <tr>
+                        <td><a href="{% url 'ubah_barang' barang.id %}" class="text-warning">{{ barang.brg_kode }}</a></td>
+                        <td>{{ barang.brg_nama }}</td>
+                        <td>{{ barang.brg_stok }}</td>
+                        <td>{{ barang.brg_harga }}</td>
+                        <td>
+                            {% if barang.brg_gambar %}
+                                <img src="{{ barang.brg_gambar.url }}" class="img-fluid" width="100" height="100" alt="Gambar Barang">
+                            {% else %}
+                                No Image Available
+                            {% endif %}
+                        </td>
+                        <td>{{ barang.brg_jenis.jns_buku }}</td>
+                        <td>{{ barang.brg_bahasa.bhs_buku }}</td>
+                        <td>{{ barang.brg_waktuposting }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#hapus-{{ barang.id }}"> Hapus </button>
+                        </td>
+                        <!-- Modal -->
+                        <div class="modal fade" id="hapus-{{ barang.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Yakin akan dihapus?</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Nama barang : {{ barang.brg_nama }}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <a href="{% url 'hapus_barang' barang.id %}" class="btn btn-danger">Yakin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if barangs.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1" aria-label="First">
+                        <span aria-hidden="true">&laquo;&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ barangs.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" aria-label="First">
+                        <span aria-hidden="true">&laquo;&laquo;</span>
+                    </span>
+                </li>
+                <li class="page-item disabled">
+                    <span class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </span>
+                </li>
+            {% endif %}
+
+            {% for num in barangs.paginator.page_range %}
+                {% if barangs.number == num %}
+                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                {% elif num > barangs.number|add:'-5' and num < barangs.number|add:'5' %}
+                    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if barangs.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ barangs.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ barangs.paginator.num_pages }}" aria-label="Last">
+                        <span aria-hidden="true">&raquo;&raquo;</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </span>
+                </li>
+                <li class="page-item disabled">
+                    <span class="page-link" aria-label="Last">
+                        <span aria-hidden="true">&raquo;&raquo;</span>
+                    </span>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <h1 class="text-center mb-4">TABEL JENIS</h1>
+    <p><a href="/tambahjenis" class="btn btn-primary">Tambah Jenis</a></p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Jenis Buku</th>
+                    <th>Keterangan</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for jenis in jeniss %}
+                    <tr>
+                        <td><a href="{% url 'ubah_jenis' jenis.id %}" class="text-warning">{{ jenis.jns_buku }}</a></td>
+                        <td>{{ jenis.jns_ket }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#hapus-jenis-{{ jenis.id }}"> Hapus </button>
+                        </td>
+                        <div class="modal fade" id="hapus-jenis-{{ jenis.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Yakin akan dihapus?</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Nama jenis : {{ jenis.jns_buku }}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <a href="{% url 'hapus_jenis' jenis.id %}" class="btn btn-danger">Yakin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <h1 class="text-center mb-4">TABEL BAHASA</h1>
+    <p><a href="/tambahbahasa" class="btn btn-primary">Tambah Bahasa</a></p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Bahasa Buku</th>
+                    <th>Keterangan</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bahasa in bahasas %}
+                    <tr>
+                        <td><a href="{% url 'ubah_bahasa' bahasa.id %}" class="text-warning">{{ bahasa.bhs_buku }}</a></td>
+                        <td>{{ bahasa.bhs_ket }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#hapus-bahasa-{{ bahasa.id }}"> Hapus </button>
+                        </td>
+                        <div class="modal fade" id="hapus-bahasa-{{ bahasa.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Yakin akan dihapus?</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Nama bahasa : {{ bahasa.bhs_buku }}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <a href="{% url 'hapus_bahasa' bahasa.id %}" class="btn btn-danger">Yakin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

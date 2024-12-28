@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block isi %}
+{% load static %}
+
+<section class="hero-section py-5" id="tentang-overlord">
+    <div class="container">
+        <h1 class="text-center mb-4">SINOPSIS</h1>
+        <div class="synopsis-content">
+            <p class="text-justify">
+                Pada tahun 2138, di mana era permainan realitas virtual sedang berkembang pesat dengan berbagai DMMO-RPG, para gamer 
+                menggunakan apa yang disebut Neural Nano-Interface yang memungkinkan mereka mendapatkan pengalaman bermain. Di puncak 
+                popularitas dan kejayaannya, ada YGGDRASIL yang mendapat perhatian publik paling besar. Di dalam permainan tersebut 
+                terdapat sebuah organisasi guild yang dikenal sebagai Ainz Ooal Gown, yang awalnya terdiri dari 41 anggota dan diakui 
+                sebagai salah satu guild terkuat. Sekarang hanya tersisa 4 anggota di guild tersebut, sementara 37 lainnya dikatakan 
+                telah menyerah dan berhenti bermain. Sebelum sebagian besar rekan-rekannya offline untuk selamanya, mereka memberikan 
+                semua peralatan dan item berharga mereka kepada ketua guild mereka, Momonga. Momonga dianggap sebagai satu-satunya 
+                anggota guild yang terus aktif bermain YGGDRASIL, mendedikasikan hati dan jiwanya pada apa yang paling ia cintai. 
+                Sebagai permulaan, ia menghabiskan sebagian besar waktunya dan uangnya untuk merawat markas mereka, yaitu Makam Besar 
+                Nazarick yang mereka rancang dengan kerja keras di masa lalu. Setelah 12 tahun yang intens, YGGDRASIL, permainan online 
+                tersebut, kehilangan keceriaan yang pernah dimilikinya dan akhirnya dijadwalkan untuk ditutup dalam waktu dekat.
+            </p>
+            <button class="btn btn-primary read-more-btn mb-3">Baca Selengkapnya</button>
+            <div class="more-content">
+                <p class="text-justify">
+                    Pada hari terakhir, Momonga dengan bijaksana mengirim beberapa undangan kepada anggota guild yang masih semi-aktif. 
+                    Namun, dari mereka yang datang selain Momonga, hanya satu yang menjawab undangan temannya saat yang lain tidak, 
+                    memutuskan untuk hadir dan tetap bersama untuk sementara sebelum logout. Meskipun sedih karena harus berpisah, ia 
+                    menerima kenyataan pahit bahwa teman-temannya memiliki situasi kehidupan nyata yang harus diurus daripada menghabiskan 
+                    waktu bermain video game. Sebagai pemain terakhir dalam guild yang online, Momonga memutuskan untuk tetap login hingga 
+                    waktu permainan berakhir, memilih untuk tertidur di dalam Ruang Tahta hingga server secara otomatis mem-boot dia keluar. 
+                    Setelah permainan akhirnya ditutup, Momonga kemudian terbangun dan mendapati dirinya masih dalam bentuk avatarnya yang 
+                    heteromorfik, seorang Overlord dan penyihir yang sangat kuat. Di dalam Nazarick, ia kemudian bertemu dengan NPC yang 
+                    tiba-tiba menunjukkan kesadaran mereka sendiri di hadapannya. Dengan kata lain, ia sebenarnya dipindahkan ke Dunia Baru 
+                    yang sepenuhnya berbeda sebagai realitas tersendiri bersama dengan berbagai NPC di Nazarick yang hidup setelah transfer 
+                    tersebut.
+                </p>
+                <p class="text-justify">
+                    Menyadari keadaan dan situasi yang ia hadapi di mana ini bukan lagi permainan, Momonga dengan mudah mencoba menggunakan 
+                    fungsi pemain, seperti chat, panggilan GM, atau bahkan logout paksa, tetapi tidak satu pun yang bisa diakses lagi. 
+                    Dengan tidak ada pilihan lain, Momonga mempertimbangkan untuk memulai pencarian jangka panjang untuk mengetahui apakah 
+                    ada orang lain dari YGGDRASIL yang dikirim ke Dunia Baru ini selain dirinya, menolak percaya bahwa ia adalah 
+                    satu-satunya pemain yang dipindahkan setelah mengalami akhir dari YGGDRASIL. Menyadari langkah selanjutnya: 
+                    Tidak memiliki orang tua, teman, atau tempat dalam masyarakat, Momonga yang merupakan pemuda biasa ini menjadikan 
+                    tujuan untuk keluar dari makam bawah tanah untuk menjelajahi, menyelidiki, dan menaklukkan dunia baru yang luas 
+                    dan tidak dikenal dengan bantuan bawahannya dari Nazarick. Ia menggunakan nama Ainz Ooal Gown sebagai tanda 
+                    penghormatan untuk mewakili anggota guildnya yang tidak ada bersamanya, dan juga untuk mengirim pesan yang 
+                    jelas kepada pemain lain di luar sana yang mungkin mengenali pemain yang dimaksud. Momonga melangkah keluar 
+                    dari Nazarick dan memulai penjelajahannya ke tanah dan wilayah yang belum dipetakan dalam upaya untuk mencari 
+                    tahu apa yang telah terjadi hingga saat ini. Ia mencari siapa pun atau apa pun yang bisa membantunya mengungkap 
+                    misteri norma dan aturan magis dunia ini yang membuatnya berbeda secara unik dari YGGDRASIL.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="additional-features py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h3 class="mb-3">Review Pengguna</h3>
+                <form id="review-form">
+                    <div class="form-group">
+                        <textarea id="review" class="form-control" placeholder="Tulis review kamu..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Kirim</button>
+                </form>
+                <div id="reviews" class="mt-3">
+                    
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h3 class="mb-3">Rating</h3>
+                <div class="rating">
+                    <span class="fa fa-star" data-value="1"></span>
+                    <span class="fa fa-star" data-value="2"></span>
+                    <span class="fa fa-star" data-value="3"></span>
+                    <span class="fa fa-star" data-value="4"></span>
+                    <span class="fa fa-star" data-value="5"></span>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h3 class="mb-3">Galeri Gambar</h3>
+                <div class="gallery d-flex flex-wrap justify-content-between">
+                    <img src="{% static 'Buku/Overlord/Karakter/Momonga.webp' %}" alt="Overlord 1" class="img-fluid mb-2">
+                    <img src="{% static 'Buku/Overlord/Karakter/Ulbert_Alain_Odle.webp' %}" alt="Overlord 2" class="img-fluid mb-2">
+                    <img src="{% static 'Buku/Overlord/Karakter/Peroroncino.webp' %}" alt="Overlord 3" class="img-fluid mb-2">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const readMoreBtn = document.querySelector('.read-more-btn');
+        const moreContent = document.querySelector('.more-content');
+
+        readMoreBtn.addEventListener('click', function() {
+            if (moreContent.style.display === "none" || moreContent.style.display === "") {
+                moreContent.style.display = "block";
+                readMoreBtn.textContent = "Baca Lebih Sedikit";
+            } else {
+                moreContent.style.display = "none";
+                readMoreBtn.textContent = "Baca Selengkapnya";
+            }
+        });
+
+
+        document.getElementById('review-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const reviewText = document.getElementById('review').value;
+            const reviewsContainer = document.getElementById('reviews');
+            if (reviewText) {
+                const reviewElement = document.createElement('p');
+                reviewElement.classList.add('user-review');
+                reviewElement.textContent = reviewText;
+                reviewsContainer.appendChild(reviewElement);
+                document.getElementById('review').value = '';
+            }
+        });
+
+
+        const stars = document.querySelectorAll('.rating span');
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                let onStar = parseInt(this.getAttribute('data-value'), 10);
+
+                stars.forEach((star, index) => {
+                    if (index < onStar) {
+                        star.classList.add('selected');
+                    } else {
+                        star.classList.remove('selected');
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+{% endblock %}
