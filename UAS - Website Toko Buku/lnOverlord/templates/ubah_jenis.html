@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block isi %}
+{% load static %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="row w-100">
+        <div class="col-md-6 mx-auto">
+          <h2>Ubah Jenis</h2>
+          
+          {% for message in messages %}
+              {% if message %}
+                  <div class="alert alert-success">{{ message }}</div>
+              {% endif %}
+          {% endfor %}
+          
+          <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">Ubah</button>
+              <a href="{% url 'tampil_barang' %}" class="btn btn-danger">Kembali</a>
+          </form>
+      </div>
+  </div>
+</div>
+
+{% endblock %}
